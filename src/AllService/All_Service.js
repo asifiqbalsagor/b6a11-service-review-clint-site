@@ -10,7 +10,11 @@ const All_Service = () => {
   const [service, setService] = useState([]);
   console.log(service);
   useEffect(() => {
-    fetch(`http://localhost:5000/CreateService?email=${user && user.email}`)
+    fetch(
+      `https://the-cooker-life-server.vercel.app/CreateService?email=${
+        user && user.email
+      }`
+    )
       .then((res) => res.json())
       .then((data) => setService(data));
   }, [user && user.email]);

@@ -26,7 +26,7 @@ const AddReviewFom = () => {
       photo: user.photoURL,
     };
 
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://the-cooker-life-server.vercel.app/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -44,7 +44,7 @@ const AddReviewFom = () => {
       .catch((error) => console.log(error));
   };
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews/${_id}`)
+    fetch(`https://the-cooker-life-server.vercel.app/reviews/${_id}`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, [_id, reviews]);
@@ -116,7 +116,6 @@ const AddReviewFom = () => {
           </section>
         )}
 
-        
         {!user && (
           <h1 className="text-center text-5xl opacity-50 font-semibold ">
             Please Login to add a review

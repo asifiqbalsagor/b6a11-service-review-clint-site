@@ -10,7 +10,11 @@ const AddReview = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?email=${user && user.email}`)
+    fetch(
+      `https://the-cooker-life-server.vercel.app/reviews?email=${
+        user && user.email
+      }`
+    )
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, [user && user.email]);
@@ -18,7 +22,7 @@ const AddReview = () => {
   const handleRemove = (id) => {
     const Proceed = window.confirm("Are You Sure, You Want to delete");
     if (Proceed) {
-      fetch(`http://localhost:5000/reviews/${id}`, {
+      fetch(`https://the-cooker-life-server.vercel.app/reviews/${id}`, {
         method: "Delete",
       })
         .then((res) => res.json())
